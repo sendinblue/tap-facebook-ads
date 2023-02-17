@@ -36,14 +36,14 @@ def start_date_fixture():
 
 @pytest.fixture(name="async_manager_mock")
 def async_manager_mock_fixture(mocker):
-    mock = mocker.patch("source_facebook_marketing.streams.base_insight_streams.InsightAsyncJobManager")
+    mock = mocker.patch("tap_facebook.streams.base_insight_streams.InsightAsyncJobManager")
     mock.return_value = mock
     return mock
 
 
 @pytest.fixture(name="async_job_mock")
 def async_job_mock_fixture(mocker):
-    mock = mocker.patch("source_facebook_marketing.streams.base_insight_streams.InsightAsyncJob")
+    mock = mocker.patch("tap_facebook.streams.base_insight_streams.InsightAsyncJob")
     mock.side_effect = lambda api, **kwargs: {"api": api, **kwargs}
 
 

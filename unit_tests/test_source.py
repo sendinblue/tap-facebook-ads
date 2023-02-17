@@ -40,14 +40,14 @@ def config_gen(config):
 
 @pytest.fixture(name="api")
 def api_fixture(mocker):
-    api_mock = mocker.patch("source_facebook_marketing.source.API")
+    api_mock = mocker.patch("tap_facebook.source.API")
     api_mock.return_value = mocker.Mock(account=123)
     return api_mock
 
 
 @pytest.fixture(name="logger_mock")
 def logger_mock_fixture(mocker):
-    return mocker.patch("source_facebook_marketing.source.logger")
+    return mocker.patch("tap_facebook.source.logger")
 
 
 class TestSourceFacebookMarketing:

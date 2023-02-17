@@ -19,7 +19,7 @@ TEST_REQUIREMENTS = [
 ]
 
 setup(
-    name="source_facebook_marketing",
+    name="tap_facebook",
     description="Source implementation for Facebook Marketing.",
     author="Airbyte",
     author_email="contact@airbyte.io",

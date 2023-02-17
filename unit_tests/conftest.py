@@ -28,7 +28,7 @@ def some_config_fixture(account_id):
 
 @fixture(autouse=True)
 def mock_default_sleep_interval(mocker):
-    mocker.patch("source_facebook_marketing.streams.common.DEFAULT_SLEEP_INTERVAL", return_value=pendulum.duration(seconds=5))
+    mocker.patch("tap_facebook.streams.common.DEFAULT_SLEEP_INTERVAL", return_value=pendulum.duration(seconds=5))
 
 
 @fixture(name="fb_account_response")

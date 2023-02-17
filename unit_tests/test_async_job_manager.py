@@ -20,12 +20,12 @@ def api_fixture(mocker):
 
 @pytest.fixture(name="time_mock")
 def time_mock_fixture(mocker):
-    return mocker.patch("source_facebook_marketing.streams.async_job_manager.time")
+    return mocker.patch("tap_facebook.streams.async_job_manager.time")
 
 
 @pytest.fixture(name="update_job_mock")
 def update_job_mock_fixture(mocker):
-    return mocker.patch("source_facebook_marketing.streams.async_job_manager.update_in_batch")
+    return mocker.patch("tap_facebook.streams.async_job_manager.update_in_batch")
 
 
 class TestInsightAsyncManager:

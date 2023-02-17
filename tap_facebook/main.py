@@ -6,7 +6,7 @@
 import sys
 
 from airbyte_cdk.entrypoint import launch
-from tap_facebook import SourceFacebookMarketing
+from source import SourceFacebookMarketing
 
 if __name__ == "__main__":
     source = SourceFacebookMarketing()

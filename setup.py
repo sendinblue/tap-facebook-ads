@@ -32,6 +32,7 @@ setup(
     },
     entry_points= """
     [console_scripts]
-    tap-facebook=main
-    """
+    tap-facebook=tap_facebook:main
+    """,
+    version="1.0.0"
 )

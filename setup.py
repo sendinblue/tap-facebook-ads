@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 MAIN_REQUIREMENTS = [
     "airbyte-cdk~=0.11",
     "cached_property==1.5.2",
-    "facebook_business==15.0.0",
+    "facebook_business==16.0.0",
     "pendulum>=2,<3",
 ]
 
@@ -19,14 +19,19 @@ TEST_REQUIREMENTS = [
 ]
 
 setup(
-    name="tap_facebook",
+    name="tap-facebook",
     description="Source implementation for Facebook Marketing.",
     author="Airbyte",
     author_email="contact@airbyte.io",
     packages=find_packages(),
     install_requires=MAIN_REQUIREMENTS,
     package_data={"": ["*.json", "schemas/*.json", "schemas/shared/*.json"]},
+    include_package_data=True,
     extras_require={
         "tests": TEST_REQUIREMENTS,
     },
+    entry_points= """
+    [console_scripts]
+    tap-facebook=main
+    """
 )

@@ -4,7 +4,7 @@
 
 import pendulum
 import pytest
-import source_facebook_marketing
+import tap_facebook
 from facebook_business import FacebookAdsApi, FacebookSession
 from facebook_business.adobjects.adaccount import AdAccount
 
@@ -14,7 +14,7 @@ FB_API_VERSION = FacebookAdsApi.API_VERSION
 class TestMyFacebookAdsApi:
     @pytest.fixture
     def fb_api(self):
-        return source_facebook_marketing.api.MyFacebookAdsApi.init(access_token="foo", crash_log=False)
+        return tap_facebook.api.MyFacebookAdsApi.init(access_token="foo", crash_log=False)
 
     @pytest.mark.parametrize(
         "max_rate,max_pause_interval,min_pause_interval,usage,pause_interval,expected_pause_interval",
@@ -120,8 +120,8 @@ class TestMyFacebookAdsApi:
         mocker.patch.object(fb_api, "_get_max_usage_pause_interval_from_batch", mocker.Mock(return_value=(usage, pause_interval)))
         mocker.patch.object(fb_api, "_parse_call_rate_header", mocker.Mock(return_value=(usage, pause_interval)))
         mocker.patch.object(fb_api, "_compute_pause_interval")
-        mocker.patch.object(source_facebook_marketing.api, "logger")
-        mocker.patch.object(source_facebook_marketing.api, "sleep")
+        mocker.patch.object(tap_facebook.api, "logger")
+        mocker.patch.object(tap_facebook.api, "sleep")
         assert fb_api._handle_call_rate_limit(mock_response, params) is None
         if "batch" in params:
             fb_api._get_max_usage_pause_interval_from_batch.assert_called_with(mock_response.json.return_value)
@@ -129,8 +129,8 @@ class TestMyFacebookAdsApi:
             fb_api._parse_call_rate_header.assert_called_with(mock_response.headers.return_value)
         if expect_sleep:
             fb_api._compute_pause_interval.assert_called_with(usage=usage, pause_interval=pause_interval)
-            source_facebook_marketing.api.sleep.assert_called_with(fb_api._compute_pause_interval.return_value.total_seconds())
-            source_facebook_marketing.api.logger.warning.assert_called_with(
+            tap_facebook.api.sleep.assert_called_with(fb_api._compute_pause_interval.return_value.total_seconds())
+            tap_facebook.api.logger.warning.assert_called_with(
                 f"Utilization is too high ({usage})%, pausing for {fb_api._compute_pause_interval.return_value}"
             )
 

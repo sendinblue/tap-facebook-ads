@@ -13,8 +13,8 @@ from airbyte_cdk.sources.utils.schema_helpers import ResourceSchemaLoader
 from airbyte_cdk.utils import AirbyteTracedException
 from cached_property import cached_property
 from facebook_business.exceptions import FacebookBadObjectError
-from source_facebook_marketing.streams.async_job import AsyncJob, InsightAsyncJob
-from source_facebook_marketing.streams.async_job_manager import InsightAsyncJobManager
+from tap_facebook.streams.async_job import AsyncJob, InsightAsyncJob
+from tap_facebook.streams.async_job_manager import InsightAsyncJobManager
 
 from .base_streams import FBMarketingIncrementalStream
 

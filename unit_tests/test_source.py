@@ -9,8 +9,8 @@ import pydantic
 import pytest
 from airbyte_cdk.models import AirbyteConnectionStatus, ConnectorSpecification, Status
 from facebook_business import FacebookAdsApi, FacebookSession
-from source_facebook_marketing import SourceFacebookMarketing
-from source_facebook_marketing.spec import ConnectorConfig
+from tap_facebook import SourceFacebookMarketing
+from tap_facebook.spec import ConnectorConfig
 
 from .utils import command_check
 

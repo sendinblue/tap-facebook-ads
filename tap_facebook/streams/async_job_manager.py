@@ -6,12 +6,12 @@ import logging
 import time
 from typing import TYPE_CHECKING, Iterator, List
 
-from source_facebook_marketing.streams.common import JobException
+from tap_facebook.streams.common import JobException
 
 from .async_job import AsyncJob, ParentAsyncJob, update_in_batch
 
 if TYPE_CHECKING:  # pragma: no cover
-    from source_facebook_marketing.api import API
+    from ta.api import API
 
 logger = logging.getLogger("airbyte")
 

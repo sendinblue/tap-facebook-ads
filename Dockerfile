@@ -4,7 +4,7 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y bash && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /airbyte/integration_code
-COPY source_facebook_marketing ./source_facebook_marketing
+COPY tap_facebook ./tap_facebook
 COPY main.py ./
 COPY setup.py ./
 RUN pip install .

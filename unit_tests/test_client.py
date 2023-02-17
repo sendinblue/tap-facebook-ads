@@ -9,7 +9,7 @@ import pytest
 from airbyte_cdk.models import SyncMode
 from facebook_business import FacebookAdsApi, FacebookSession
 from facebook_business.exceptions import FacebookRequestError
-from source_facebook_marketing.streams import AdAccount, AdCreatives, Campaigns
+from tap_facebook.streams import AdAccount, AdCreatives, Campaigns
 
 FB_API_VERSION = FacebookAdsApi.API_VERSION
 

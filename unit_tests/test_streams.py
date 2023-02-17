@@ -5,8 +5,8 @@
 import pendulum
 import pytest
 from pendulum import duration
-from source_facebook_marketing.api import MyFacebookAdsApi
-from source_facebook_marketing.streams import (
+from tap_facebook.api import MyFacebookAdsApi
+from tap_facebook.streams import (
     AdsInsights,
     AdsInsightsActionType,
     AdsInsightsAgeAndGender,
@@ -15,8 +15,8 @@ from source_facebook_marketing.streams import (
     AdsInsightsPlatformAndDevice,
     AdsInsightsRegion,
 )
-from source_facebook_marketing.streams.base_streams import FBMarketingStream
-from source_facebook_marketing.streams.streams import fetch_thumbnail_data_url
+from tap_facebook.streams.base_streams import FBMarketingStream
+from tap_facebook.streams.streams import fetch_thumbnail_data_url
 
 
 def test_filter_all_statuses(api, mocker):

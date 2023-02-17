@@ -9,7 +9,7 @@ from typing import Any, List, MutableMapping, Set, Tuple
 
 import pytest
 from airbyte_cdk.models import AirbyteMessage, ConfiguredAirbyteCatalog, ConfiguredAirbyteStream, DestinationSyncMode, SyncMode, Type
-from source_facebook_marketing.source import SourceFacebookMarketing
+from tap_facebook.source import SourceFacebookMarketing
 
 
 @pytest.fixture(scope="session", name="state")

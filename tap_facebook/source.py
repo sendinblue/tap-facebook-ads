@@ -11,9 +11,9 @@ import requests
 from airbyte_cdk.models import AuthSpecification, ConnectorSpecification, DestinationSyncMode, OAuth2Specification
 from airbyte_cdk.sources import AbstractSource
 from airbyte_cdk.sources.streams import Stream
-from source_facebook_marketing.api import API
-from source_facebook_marketing.spec import ConnectorConfig
-from source_facebook_marketing.streams import (
+from tap_facebook.api import API
+from tap_facebook.spec import ConnectorConfig
+from tap_facebook.streams import (
     Activities,
     AdAccount,
     AdCreatives,
